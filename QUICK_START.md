@@ -10,26 +10,30 @@ This is the most advanced Minecraft server with multithreading support and Spigo
 
 ---
 
-## 🚀 Installation (Instalación) - 30 Segundos / 30 Seconds
+## ⚡ Super Quick Setup - 5 Minutes
 
-### Windows
+### 1. **Get a Server JAR** (2 min)
+Download Paper from https://papermc.io/downloads/paper
+- Save as: `moai-server.jar` in the Moai folder
+- Need help? → See [GET_SERVER_JAR.md](GET_SERVER_JAR.md)
+
+### 2. **Run the Script** (1 min)
+**Windows:**
 ```batch
 start-moai.bat
 ```
 
-### Linux/macOS
+**Linux/macOS:**
 ```bash
 ./start-moai.sh
 ```
 
-**¡Eso es todo!** / **That's it!**
-
-El script se encargará de:
-- ✅ Descargar el servidor si es necesario / Download server if needed
-- ✅ Crear directorios / Create directories
-- ✅ Generar configuración / Generate configuration
-- ✅ Validar EULA
-- ✅ Iniciar con JVM optimizado / Start with optimized JVM
+### 3. **Done!** 🎉
+Server starts automatically with:
+- ✅ EULA auto-accepted
+- ✅ Configuration auto-created
+- ✅ Moai-Core pre-installed
+- ✅ Optimized JVM settings
 
 ---
 

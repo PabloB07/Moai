@@ -1,7 +1,11 @@
-![Brand](https://github.com/deivaxxx/Moai/blob/main/moai.png)
+<div align="center">
 
+![Moai Logo](./moai.png)
 
-# Moai 🗿 1.21.5 - 1.21.11 Spigot Plugins Support
+# Moai 1.21.5 - 1.21.11 Spigot/Paper Plugins Support
+
+</div>
+
 A custom server implementation that supports the Bukkit API and 80% of Spigot/Paper plugins
 
 ## Moai is a professional multithreaded Minecraft server implementation
@@ -42,6 +46,6 @@ Most plugins have a multithreaded compatibility setting, and Moai runs entirely 
 ```Folia``` - The main core used for NVFolia branding
 
 ## The core was specially created for the server 
-play.necovanilla.ru
+moai.zgaming.cl
 
 ### What does the NVFolia multithreaded core do, each dimension has its own thread and chunk too. Now if a player is located and loads 16 chunks, then his TPS will be the same as in these 16 chunks. Other players who load their chunks will have their own TPS
