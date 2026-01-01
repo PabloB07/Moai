@@ -1,0 +1,31 @@
+name: "Moai-Core"
+version: "1.0.0"
+main: "io.canvasmc.moaicore.MoaiCorePlugin"
+api-version: "1.21"
+folia-supported: true
+
+description: "The core Moai server plugin - Handles minigame management, arena threading, and server customization"
+authors:
+  - "Moai"
+
+commands:
+  moai:
+    description: "Main Moai server command"
+    usage: "/<command> [reload|status|arena]"
+  moaicore:
+    description: "Moai-Core plugin management"
+    usage: "/<command> [reload|effects|version]"
+
+permissions:
+  moai.admin:
+    description: "Access to all Moai admin commands"
+    default: op
+  moai.command.reload:
+    description: "Reload Moai configuration"
+    default: op
+  moai.command.status:
+    description: "View Moai server status"
+    default: true
+  moai.effects.disable:
+    description: "Disable welcome effects for yourself"
+    default: true

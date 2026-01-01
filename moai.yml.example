@@ -1,0 +1,139 @@
+# Moai Server Configuration File
+# 
+# Este archivo controla el comportamiento del servidor Moai
+# Cambios aquí se reflejan al recargar con /moaicore reload
+#
+# Todos los comentarios comienzan con #
+# La indentación es importante: usa espacios, no tabulaciones
+
+# ============================================
+# CONFIGURACIÓN DE IDIOMA / LANGUAGE SETTINGS
+# ============================================
+
+# Idioma del servidor / Server language
+# Valores válidos: es (Español), en (Inglés)
+# Valid values: es (Spanish), en (English)
+language: es
+
+
+# ==============================================
+# CONFIGURACIÓN VISUAL / VISUAL SETTINGS
+# ==============================================
+
+# Mostrar banner ASCII al iniciar
+# Show ASCII banner on startup
+# Por defecto / Default: true
+showAsciBanner: true
+
+# Activar efectos de bienvenida para jugadores nuevos
+# Enable welcome effects for new players
+# Incluye: sonido, mensajes, BossBar
+# Includes: sound, messages, BossBar
+# Por defecto / Default: true
+enableWelcomeEffects: true
+
+
+# ============================================
+# OPTIMIZACIONES / OPTIMIZATION SETTINGS
+# ============================================
+
+# Activar optimizaciones para minijuegos
+# Enable minigame optimizations
+# Habilita gestión de threads por arena
+# Enables per-arena thread management
+# Por defecto / Default: true
+enableMinigameOptimizations: true
+
+# Máximo de entidades por chunk en minijuegos
+# Maximum entities per chunk in minigames
+# Valores recomendados: 16 (bajo lag), 32 (normal), 48 (alto rendimiento)
+# Recommended values: 16 (low lag), 32 (normal), 48 (high performance)
+# Por defecto / Default: 32
+maxEntitiesPerChunk: 32
+
+# Activar spawn asincrónico de mobs
+# Enable async mob spawning
+# Usa la API de PufferFish para mejor rendimiento
+# Uses PufferFish API for better performance
+# Por defecto / Default: true
+enableAsyncMobSpawning: true
+
+# Activar monitoreo de rendimiento
+# Enable performance monitoring
+# Log de TPS, lag, y métricas del servidor
+# Logs TPS, lag, and server metrics
+# Por defecto / Default: false
+enablePerformanceMonitoring: false
+
+
+# ============================================
+# IDENTIDAD DEL SERVIDOR / SERVER IDENTITY
+# ============================================
+
+# Nombre de marca del servidor
+# Server brand name
+# Mostrado en /version y consola del cliente
+# Shown in /version and client console
+# Por defecto / Default: Moai
+serverBrand: Moai
+
+
+# ============================================
+# EJEMPLOS DE CONFIGURACIÓN / CONFIGURATION EXAMPLES
+# ============================================
+
+# EJEMPLO 1: Server de Minijuegos Optimizado
+# EXAMPLE 1: Optimized Minigames Server
+# ---
+# language: es
+# showAsciBanner: true
+# enableWelcomeEffects: true
+# enableMinigameOptimizations: true
+# maxEntitiesPerChunk: 16
+# enableAsyncMobSpawning: true
+# serverBrand: Moai-Minigames
+# enablePerformanceMonitoring: true
+
+# EJEMPLO 2: Servidor Vanilla con Efectos
+# EXAMPLE 2: Vanilla Server with Effects
+# ---
+# language: en
+# showAsciBanner: true
+# enableWelcomeEffects: true
+# enableMinigameOptimizations: false
+# maxEntitiesPerChunk: 48
+# enableAsyncMobSpawning: true
+# serverBrand: Moai-Vanilla
+# enablePerformanceMonitoring: false
+
+# EJEMPLO 3: Servidor Silencioso (sin efectos)
+# EXAMPLE 3: Silent Server (no effects)
+# ---
+# language: es
+# showAsciBanner: false
+# enableWelcomeEffects: false
+# enableMinigameOptimizations: true
+# maxEntitiesPerChunk: 32
+# enableAsyncMobSpawning: true
+# serverBrand: Moai-Silent
+# enablePerformanceMonitoring: false
+
+
+# ============================================
+# NOTAS / NOTES
+# ============================================
+
+# 1. Los cambios se aplican inmediatamente al recargar con /moaicore reload
+#    Changes apply immediately when reloaded with /moaicore reload
+
+# 2. Los valores deben ser válidos YAML. Strings con : o # requieren comillas
+#    Values must be valid YAML. Strings with : or # need quotes
+
+# 3. Los valores booleanos deben ser: true o false (sin comillas)
+#    Boolean values must be: true or false (without quotes)
+
+# 4. Restaurar a valores por defecto: eliminar este archivo y reiniciar
+#    Reset to defaults: delete this file and restart the server
+
+# 5. Para ayuda: /moaicore status
+#    For help: /moaicore status

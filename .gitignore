@@ -1,0 +1,18 @@
+# Ignore Gradle project-specific cache directory
+.gradle
+
+# Ignore Gradle build output directory
+build
+
+/run
+
+/NVfolia-server/build.gradle.kts
+/NVfolia-server/src/minecraft
+/NVfolia-api/build.gradle.kts
+/folia-api
+/folia-server
+/paper-server
+/paper-api
+
+.idea/
+/local/
