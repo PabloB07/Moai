@@ -87,6 +87,6 @@ tasks {
             configurations.runtimeClasspath.get().filter { it.exists() }.map { zipTree(it) }
         })
         duplicatesStrategy = DuplicatesStrategy.EXCLUDE
-        include("**/*.class", "**/*.yaml")
+        include("**/*.class", "**/*.yaml", "META-INF/services/org.apache.logging.log4j.spi.Provider")
     }
 }
