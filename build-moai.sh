@@ -16,7 +16,7 @@ if [[ "$1" == "--build" ]]; then
 fi
 
 echo "Building development environment..."
-./gradlew clean fatJar
+./gradlew clean shadowJar
 
 if [ $? -eq 0 ]; then
   echo ""

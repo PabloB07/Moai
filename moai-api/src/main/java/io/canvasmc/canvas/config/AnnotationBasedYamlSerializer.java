@@ -357,8 +357,11 @@ public class AnnotationBasedYamlSerializer<T> implements ConfigSerializer<T> {
         }
     }
 
-    private @NotNull Set<String> flattenKeys(@NotNull Map<String, Object> map, String prefix) {
+    private @NotNull Set<String> flattenKeys(Map<String, Object> map, String prefix) {
         Set<String> keys = new java.util.HashSet<>();
+        if (map == null || map.isEmpty()) {
+            return keys;
+        }
         for (Map.Entry<String, Object> entry : map.entrySet()) {
             String fullKey = prefix.isEmpty() ? entry.getKey() : prefix + "." + entry.getKey();
             keys.add(fullKey);
@@ -376,7 +379,11 @@ public class AnnotationBasedYamlSerializer<T> implements ConfigSerializer<T> {
         String body = lines.length > 1 ? lines[1] : "";
 
         Yaml yaml = new Yaml();
-        return yaml.load(new StringReader(body));
+        Map<String, Object> loaded = yaml.load(new StringReader(body));
+        if (loaded == null) {
+            return new LinkedHashMap<>();
+        }
+        return loaded;
     }
 
     @Override
@@ -385,7 +392,21 @@ public class AnnotationBasedYamlSerializer<T> implements ConfigSerializer<T> {
         if (Files.exists(configPath)) {
             try {
                 String content = Files.readString(configPath);
-                return this.yaml.load("!!" + getConfigClass().getName() + NEW_LINE + content);
+                // Backward compatibility: strip legacy global tag header if present (e.g., "!!com.example.Config\n...")
+                int nl = content.indexOf('\n');
+                if (content.startsWith("!!") && nl > -1) {
+                    content = content.substring(nl + 1);
+                }
+                // Use typed loading without injecting a global tag header.
+                // SnakeYAML 2.x disallows arbitrary global tags by default, which caused
+                // failures like "Global tag is not allowed" when we prepended "!!FQCN".
+                // loadAs binds the root type safely without requiring a global tag in the file.
+                T loaded = this.yaml.loadAs(content, this.configClass);
+                if (loaded == null) {
+                    // Empty file or only comments – fall back to defaults
+                    return this.createDefault();
+                }
+                return loaded;
             } catch (IOException e) {
                 throw new SerializationException(e);
             }
